@@ -9,16 +9,6 @@ var {
   StyleSheet,
 } = React;
 
-var searchStyles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  description: {
-    fontSize: 20,
-    backgroundColor: '#fff'
-  }
-});
-
 class Search extends Component {
   render() {
     return(
@@ -32,5 +22,16 @@ class Search extends Component {
     );
   }
 }
+
+var searchStyles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  description: {
+    fontSize: 20,
+    backgroundColor: '#fff'
+  }
+});
+
 
 module.exports = Search;

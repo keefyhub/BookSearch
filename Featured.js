@@ -9,16 +9,6 @@ var {
   StyleSheet
 } = React;
 
-var featuredStyles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  description: {
-    fontSize: 20,
-    backgroundColor: '#fff'
-  }
-});
-
 class Featured extends Component {
   render() {
     return(
@@ -32,5 +22,15 @@ class Featured extends Component {
     );
   }
 }
+
+var featuredStyles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  description: {
+    fontSize: 20,
+    backgroundColor: '#fff'
+  }
+});
 
 module.exports = Featured;
