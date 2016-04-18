@@ -1,19 +1,18 @@
 'use strict';
 
-var React = require('react-native');
-var BookList = require('./BookList');
-
-var {
+import React, {
   Component,
   NavigatorIOS,
   StyleSheet
-} = React;
+} from 'react-native';
+
+var BookList = require('./BookList');
 
 class Featured extends Component {
   render() {
     return(
       <NavigatorIOS
-        style={featuredStyles.container}
+        style={styles.container}
         initialRoute={{
           title: 'Featured Books',
           component: BookList
@@ -23,7 +22,7 @@ class Featured extends Component {
   }
 }
 
-var featuredStyles = StyleSheet.create({
+var styles = StyleSheet.create({
   container: {
     flex: 1
   },

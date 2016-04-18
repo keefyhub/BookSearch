@@ -1,10 +1,6 @@
 'use strict';
 
-var React = require('react-native');
-var Featured = require('./Featured');
-var Search = require('./Search');
-
-var {
+import React, {
   AppRegistry,
   Component,
   Image,
@@ -12,7 +8,10 @@ var {
   TabBarIOS,
   Text,
   View
-} = React;
+} from 'react-native';
+
+var Featured = require('./Featured');
+var Search = require('./Search');
 
 class BookSearch extends Component {
   constructor(props) {
@@ -51,7 +50,7 @@ class BookSearch extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',

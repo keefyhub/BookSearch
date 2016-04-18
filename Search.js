@@ -1,19 +1,18 @@
 'use strict';
 
-var React = require('react-native');
-var SearchBooks = require('./SearchBooks');
-
-var {
+import React, {
   Component,
   NavigatorIOS,
-  StyleSheet,
-} = React;
+  StyleSheet
+} from 'react-native';
+
+var SearchBooks = require('./SearchBooks');
 
 class Search extends Component {
   render() {
     return(
       <NavigatorIOS
-        style={searchStyles.container}
+        style={styles.container}
         initialRoute={{
           title: 'Search Books',
           component: SearchBooks
@@ -23,7 +22,7 @@ class Search extends Component {
   }
 }
 
-var searchStyles = StyleSheet.create({
+var styles = StyleSheet.create({
   container: {
     flex: 1
   },

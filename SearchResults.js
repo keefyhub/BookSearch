@@ -1,9 +1,6 @@
 'use strict';
 
-var React = require('react-native');
-var BookDetail = require('./BookDetail');
-
-var {
+import React, {
   Component,
   Image,
   ListView,
@@ -11,7 +8,9 @@ var {
   Text,
   TouchableHighlight,
   View
-} = React;
+} from 'react-native';
+
+var BookDetail = require('./BookDetail');
 
 class SearchResults extends Component {
   constructor(props) {
@@ -27,7 +26,7 @@ class SearchResults extends Component {
       <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderBook.bind(this)}
-        style={searchResultsStyles.listView}
+        style={styles.listView}
       />
     );
   }
@@ -38,21 +37,21 @@ class SearchResults extends Component {
     return(
       <TouchableHighlight onPress={() => this.showBookDetail(book)} underlayColor='#ddd'>
         <View>
-          <View style={searchResultsStyles.cellContainer}>
+          <View style={styles.cellContainer}>
             <Image
               source={{uri: imageURI}}
-              style={searchResultsStyles.thumbnail}
+              style={styles.thumbnail}
             />
-            <View style={searchResultsStyles.rightContainer}>
-              <Text style={searchResultsStyles.title}>
+            <View style={styles.rightContainer}>
+              <Text style={styles.title}>
                 {book.volumeInfo.title}
               </Text>
-              <Text style={searchResultsStyles.author}>
+              <Text style={styles.author}>
                 {book.volumeInfo.authors}
               </Text>
             </View>
           </View>
-          <View style={searchResultsStyles.divider}/>
+          <View style={styles.divider}/>
         </View>
       </TouchableHighlight>
     );
@@ -67,7 +66,7 @@ class SearchResults extends Component {
   }
 }
 
-var searchResultsStyles = StyleSheet.create({
+var styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     flex: 1,

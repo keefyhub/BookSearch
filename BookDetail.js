@@ -1,14 +1,12 @@
 'use strict';
 
-var React = require('react-native');
-
-var {
+import React, {
   Component,
   Image,
   StyleSheet,
   Text,
   View
-} = React;
+} from 'react-native';
 
 class BookDeatil extends Component {
   render() {
@@ -16,15 +14,15 @@ class BookDeatil extends Component {
     var imageURI = (typeof book.volumeInfo.imageLinks !== 'undefined') ? book.volumeInfo.imageLinks.thumbnail : '';
     var description = (typeof book.volumeInfo.description !== 'undefined') ? book.volumeInfo.description : 'no description available';
     return(
-      <View style={bookDetailStyles.container}>
-        <Image style={bookDetailStyles.image} source={{uri: imageURI}} />
-        <Text style={bookDetailStyles.description}>{description}</Text>
+      <View style={styles.container}>
+        <Image style={styles.image} source={{uri: imageURI}} />
+        <Text style={styles.description}>{description}</Text>
       </View>
     );
   }
 }
 
-var bookDetailStyles = StyleSheet.create({
+var styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     marginTop: 75

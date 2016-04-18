@@ -1,9 +1,6 @@
 'use strict';
 
-var React = require('react-native');
-var SearchResults = require('./SearchResults');
-
-var {
+import React, {
   ActivityIndicatorIOS,
   Component,
   StyleSheet,
@@ -11,7 +8,9 @@ var {
   TextInput,
   TouchableHighlight,
   View
-} = React;
+} from 'react-native';
+
+var SearchResults = require('./SearchResults');
 
 class SearchBooks extends Component {
   constructor(props) {
@@ -75,32 +74,32 @@ class SearchBooks extends Component {
     var spinner = this.state.isLoading ?
       (<ActivityIndicatorIOS hidden='true' size='large' />) : (<View/>);
     return(
-      <View style={searchBooksStyles.container}>
-        <Text style={searchBooksStyles.instructions}>
+      <View style={styles.container}>
+        <Text style={styles.instructions}>
           Search by book title and/or author
         </Text>
         <View>
-          <Text style={searchBooksStyles.fieldLabel}>
+          <Text style={styles.fieldLabel}>
             Book Title:
           </Text>
-          <TextInput style={searchBooksStyles.searchInput} onChange={this.bookTitleInput.bind(this)}/>
+          <TextInput style={styles.searchInput} onChange={this.bookTitleInput.bind(this)}/>
         </View>
         <View>
-          <Text style={searchBooksStyles.fieldLabel}>
+          <Text style={styles.fieldLabel}>
             Author:
           </Text>
-          <TextInput style={searchBooksStyles.searchInput} onChange={this.bookAuthorInput.bind(this)}/>
+          <TextInput style={styles.searchInput} onChange={this.bookAuthorInput.bind(this)}/>
         </View>
         <TouchableHighlight
-          style={searchBooksStyles.button}
+          style={styles.button}
           underlayColor='#f1c40f'
           onPress={this.searchBooks.bind(this)}>
-          <Text style={searchBooksStyles.buttonText}>
+          <Text style={styles.buttonText}>
             Search
           </Text>
         </TouchableHighlight>
         {spinner}
-        <Text style={searchBooksStyles.errorMessage}>
+        <Text style={styles.errorMessage}>
           {this.state.errorMessage}
         </Text>
       </View>
@@ -108,7 +107,7 @@ class SearchBooks extends Component {
   }
 }
 
-var searchBooksStyles = StyleSheet.create({
+var styles = StyleSheet.create({
   container: {
     marginTop: 65,
     padding: 10

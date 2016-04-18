@@ -1,9 +1,6 @@
 'use strict';
 
-var React = require('react-native');
-var BookDetail = require('./BookDetail');
-
-var {
+import React, {
   ActivityIndicatorIOS,
   Component,
   Image,
@@ -12,7 +9,9 @@ var {
   Text,
   View,
   TouchableHighlight
-} = React;
+} from 'react-native';
+
+var BookDetail = require('./BookDetail');
 
 var REQUEST_URL = 'https://www.googleapis.com/books/v1/volumes?q=subject:fantasy';
 
@@ -45,7 +44,7 @@ class BookList extends Component {
 
   renderLoadingView() {
     return(
-      <View style={bookListStyles.loading}>
+      <View style={styles.loading}>
 
       </View>
     );
@@ -68,7 +67,7 @@ class BookList extends Component {
       <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderBook.bind(this)}
-        style={bookListStyles.listView}
+        style={styles.listView}
       />
     );
   }
@@ -77,28 +76,28 @@ class BookList extends Component {
     return(
       <TouchableHighlight onPress={() => this.showBookDetail(book)} underlayColor='#ddd'>
         <View>
-          <View style={bookListStyles.container}>
+          <View style={styles.container}>
             <Image
             source={{uri: book.volumeInfo.imageLinks.thumbnail}}
-            style={bookListStyles.thumbnail}
+            style={styles.thumbnail}
             />
-            <View style={bookListStyles.rightContainer}>
-              <Text style={bookListStyles.title}>
+            <View style={styles.rightContainer}>
+              <Text style={styles.title}>
                 {book.volumeInfo.title}
               </Text>
-              <Text style={bookListStyles.author}>
+              <Text style={styles.author}>
                 {book.volumeInfo.authors}
               </Text>
             </View>
           </View>
-          <View style={bookListStyles.divider}/>
+          <View style={styles.divider}/>
         </View>
       </TouchableHighlight>
     );
   }
 }
 
-var bookListStyles = StyleSheet.create({
+var styles = StyleSheet.create({
   listView: {
     backgroundColor: '#f5fcff',
     marginBottom: 50,
